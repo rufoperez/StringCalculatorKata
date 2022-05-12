@@ -14,7 +14,7 @@ public static class StringCalculator
     private static int SumStringValues(string value)
     {
         int result = 0;
-        List<string> values = value.Split(',').ToList();
+        List<string> values = value.Split(new char[] { ',',  '\n'}).ToList();
         foreach (var stringValue in values)
             result += int.Parse(stringValue);
         return result;
