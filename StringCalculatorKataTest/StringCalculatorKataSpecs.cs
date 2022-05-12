@@ -41,7 +41,7 @@ namespace StringCalculatorKataTest
         [Test]
         public void when_value_is_2_comma_3_then_return_5()
         {
-            int result = StringCalculator.Add("1,1");
+            int result = StringCalculator.Add("2,3");
             Assert.AreEqual(5, result);
         }
     }

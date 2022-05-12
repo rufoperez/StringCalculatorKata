@@ -10,6 +10,6 @@ public static class StringCalculator
             return 0;
         if(value.Length == 1)
             return int.Parse(value);
-        return 2;
+        return int.Parse(value.Split(',')[0]) + int.Parse(value.Split(',')[1]);
     }
 }
