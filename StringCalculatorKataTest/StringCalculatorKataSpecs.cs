@@ -55,5 +55,13 @@ namespace StringCalculatorKataTest
             int result = StringCalculator.Add(value);
             Assert.AreEqual(expectedResult, result);
         }
+
+        [Test]
+        [TestCase("//.\n1,1", 2)]
+        public void when_value_have_delimeters_then_return_sum_by_delimeters(string value, int expectedResult)
+        {
+            int result = StringCalculator.Add(value);
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
