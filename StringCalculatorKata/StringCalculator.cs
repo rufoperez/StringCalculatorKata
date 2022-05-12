@@ -6,6 +6,6 @@ public static class StringCalculator
     {
         if(string.IsNullOrEmpty(value))
             return 0;
-        return 1;
+        return int.Parse(value);
     }
 }
