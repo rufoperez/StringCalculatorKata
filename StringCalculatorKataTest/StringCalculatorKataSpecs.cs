@@ -18,31 +18,23 @@ namespace StringCalculatorKataTest
         }
 
         [Test]
-        public void when_value_is_1_then_return_1()
+        [TestCase("1", 1)]
+        [TestCase("2", 2)]
+        [TestCase("3", 3)]
+        public void when_value_is_number_then_return_number(string value, int expectedResult)
         {
-            int result = StringCalculator.Add("1");
-            Assert.AreEqual(1, result);
+            int result = StringCalculator.Add(value);
+            Assert.AreEqual(expectedResult, result);
         }
 
         [Test]
-        public void when_value_is_2_then_return_2()
+        [TestCase("1,1", 2)]
+        [TestCase("2,2", 4)]
+        [TestCase("3,5", 8)]
+        public void when_value_are_two_numbers_then_return_sum(string value, int expectedResult)
         {
-            int result = StringCalculator.Add("2");
-            Assert.AreEqual(2, result);
-        }
-
-        [Test]
-        public void when_value_is_1_comma_1_then_return_2()
-        {
-            int result = StringCalculator.Add("1,1");
-            Assert.AreEqual(2, result);
-        }
-
-        [Test]
-        public void when_value_is_2_comma_3_then_return_5()
-        {
-            int result = StringCalculator.Add("2,3");
-            Assert.AreEqual(5, result);
+            int result = StringCalculator.Add(value);
+            Assert.AreEqual(expectedResult, result);
         }
     }
 }
