@@ -30,5 +30,12 @@ namespace StringCalculatorKataTest
             int result = StringCalculator.Add("2");
             Assert.AreEqual(2, result);
         }
+
+        [Test]
+        public void when_value_is_1_comma_1_then_return_2()
+        {
+            int result = StringCalculator.Add("1,1");
+            Assert.AreEqual(2, result);
+        }
     }
 }
