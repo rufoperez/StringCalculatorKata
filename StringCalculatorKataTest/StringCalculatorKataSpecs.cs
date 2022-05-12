@@ -48,6 +48,8 @@ namespace StringCalculatorKataTest
 
         [Test]
         [TestCase("1\n1", 2)]
+        [TestCase("3\n4", 7)]
+        [TestCase("3\n4,5", 12)]
         public void when_value_are_two_numbers_separated_by_enter_then_return_sum(string value, int expectedResult)
         {
             int result = StringCalculator.Add(value);
