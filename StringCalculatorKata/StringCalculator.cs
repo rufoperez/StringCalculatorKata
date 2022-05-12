@@ -2,8 +2,10 @@ namespace StringCalculatorKata;
 
 public static class StringCalculator
 {
-    public static int Add(string empty)
+    public static int Add(string value)
     {
-        return 0;
+        if(string.IsNullOrEmpty(value))
+            return 0;
+        return 1;
     }
 }
