@@ -39,6 +39,7 @@ namespace StringCalculatorKataTest
 
         [Test]
         [TestCase("1,1,1", 3)]
+        [TestCase("2,3,4", 9)]
         public void when_value_are_three_numbers_then_return_sum(string value, int expectedResult)
         {
             int result = StringCalculator.Add(value);
