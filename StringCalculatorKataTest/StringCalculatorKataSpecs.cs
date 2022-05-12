@@ -23,5 +23,12 @@ namespace StringCalculatorKataTest
             int result = StringCalculator.Add("1");
             Assert.AreEqual(1, result);
         }
+
+        [Test]
+        public void when_value_is_2_then_return_2()
+        {
+            int result = StringCalculator.Add("2");
+            Assert.AreEqual(2, result);
+        }
     }
 }
