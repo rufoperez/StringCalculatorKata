@@ -45,5 +45,13 @@ namespace StringCalculatorKataTest
             int result = StringCalculator.Add(value);
             Assert.AreEqual(expectedResult, result);
         }
+
+        [Test]
+        [TestCase("1\n1", 2)]
+        public void when_value_are_two_numbers_separated_by_enter_then_return_sum(string value, int expectedResult)
+        {
+            int result = StringCalculator.Add(value);
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
