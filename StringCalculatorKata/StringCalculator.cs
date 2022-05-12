@@ -17,6 +17,10 @@ public static class StringCalculator
 
     private static int SumStringValues(string value)
     {
-        return int.Parse(value.Split(',')[0]) + int.Parse(value.Split(',')[1]);
+        int result = 0;
+        List<string> values = value.Split(',').ToList();
+        foreach (var stringValue in values)
+            result += int.Parse(stringValue);
+        return result;
     }
 }
