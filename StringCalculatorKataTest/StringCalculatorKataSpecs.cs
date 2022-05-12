@@ -57,7 +57,9 @@ namespace StringCalculatorKataTest
         }
 
         [Test]
-        [TestCase("//.\n1,1", 2)]
+        [TestCase("//.\n1.1", 2)]
+        [TestCase("//;\n1;1", 2)]
+        [TestCase("//;\n1;3;1", 5)]
         public void when_value_have_delimeters_then_return_sum_by_delimeters(string value, int expectedResult)
         {
             int result = StringCalculator.Add(value);
