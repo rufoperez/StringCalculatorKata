@@ -8,10 +8,12 @@ public static class StringCalculator
     {
         if (string.IsNullOrEmpty(value))
             return 0;
-        if (value.IndexOf(',') > 0)
+        if (value.IndexOf(",") > 0 || value.IndexOf("\n") > 0)
         {
+            string[] separators = new string[2] {",", "\n"};
+
             var result = 0;
-            string[] values = value.Split(',');
+            string[] values = value.Split(separators, StringSplitOptions.None);
             foreach (var val in values)
             {
                 result += int.Parse(val);
