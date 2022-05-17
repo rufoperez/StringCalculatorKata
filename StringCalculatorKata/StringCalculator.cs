@@ -10,7 +10,17 @@ public static class StringCalculator
             return 0;
         if (value.IndexOf(",") > 0 || value.IndexOf("\n") > 0)
         {
-            string[] separators = new string[2] {",", "\n"};
+            string[] separators = null;
+            if (value.StartsWith("//"))
+            {
+                separators = new string[1] {value.Substring(2, 1)};
+                value = value.Substring(4, value.Length - 4);
+            }
+            else
+            {
+                separators = new string[2] {",", "\n"};
+            }
+
 
             var result = 0;
             string[] values = value.Split(separators, StringSplitOptions.None);
