@@ -44,6 +44,7 @@ namespace StringCalculatorKataTest
 
         [Test]
         [TestCase("1,1,1,1", 4)]
+        [TestCase("1,2,3,4", 10)]
         public void when_value_are_comma_separated_numbers_then_sum_all_numbers(string value, int expectedResult)
         {
             var result = StringCalculator.Add(value);
