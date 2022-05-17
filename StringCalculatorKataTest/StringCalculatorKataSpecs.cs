@@ -21,11 +21,13 @@ namespace StringCalculatorKataTest
         }
 
         [Test]
-        public void when_value_is_one_then_return_one()
+        [TestCase("1", 1)]
+        [TestCase("2", 2)]
+        public void when_value_is_number_then_return_the_number(string value, int expectedResult)
         {
-            var result = StringCalculator.Add("1");
+            var result = StringCalculator.Add(value);
 
-            result.Should().Be(1);
+            result.Should().Be(expectedResult);
         }
     }
 }
