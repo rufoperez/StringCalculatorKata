@@ -19,5 +19,13 @@ namespace StringCalculatorKataTest
 
             result.Should().Be(0);
         }
+
+        [Test]
+        public void when_value_is_one_then_return_one()
+        {
+            var result = StringCalculator.Add("1");
+
+            result.Should().Be(1);
+        }
     }
 }
