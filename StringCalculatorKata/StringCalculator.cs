@@ -9,7 +9,16 @@ public static class StringCalculator
         if (string.IsNullOrEmpty(value))
             return 0;
         if (value.IndexOf(',') > 0)
-            return int.Parse(value.Split(',')[0]) + int.Parse(value.Split(',')[1]);
+        {
+            var result = 0;
+            string[] values = value.Split(',');
+            foreach (var val in values)
+            {
+                result += int.Parse(val);
+            }
+
+            return result;
+        }
         return int.Parse(value);
     }
 }
