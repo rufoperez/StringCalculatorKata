@@ -6,8 +6,8 @@ public static class StringCalculator
 {
     public static int Add(string value)
     {
-        if (value == "1")
-            return 1;
+        if (value != "0")
+            return int.Parse(value);
         return 0;
     }
 }
