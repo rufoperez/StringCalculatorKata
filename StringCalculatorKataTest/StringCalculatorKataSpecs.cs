@@ -65,5 +65,12 @@ namespace StringCalculatorKataTest
             int result = StringCalculator.Add(value);
             Assert.AreEqual(expectedResult, result);
         }
+
+        [Test]
+        [TestCase("-1")]
+        public void when_value_has_negative_values_throw_exception(string value)
+        {
+            int result = StringCalculator.Add(value);
+        }
     }
 }
