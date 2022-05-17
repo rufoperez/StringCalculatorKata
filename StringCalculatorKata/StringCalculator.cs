@@ -26,11 +26,15 @@ public static class StringCalculator
             string[] values = value.Split(separators, StringSplitOptions.None);
             foreach (var val in values)
             {
+                if (int.Parse(val) < 0)
+                    throw new ArgumentException("negatives not allowed");
                 result += int.Parse(val);
             }
 
             return result;
         }
+        if (int.Parse(value) < 0)
+            throw new ArgumentException("negatives not allowed");
         return int.Parse(value);
     }
 }

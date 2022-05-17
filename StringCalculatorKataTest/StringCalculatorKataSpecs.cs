@@ -72,11 +72,14 @@ namespace StringCalculatorKataTest
         }
 
         [Test]
-        public void when_there_is_a_negative_number_then_return_exception()
+        [TestCase("-1")]
+        [TestCase("1,-1")]
+        [TestCase("1,1\n-2")]
+        public void when_there_is_a_negative_number_then_return_exception(string value)
         {
-            Action sum = () => StringCalculator.Add("-1");
+            Action sum = () => StringCalculator.Add(value);
 
-            sum.Should().Throw<Exception>();
+            sum.Should().Throw<Exception>("negatives not allowed");
         }
     }
 }
