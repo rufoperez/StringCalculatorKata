@@ -30,5 +30,14 @@ namespace StringCalculatorKataTest
 
             result.Should().Be(expectedResult);
         }
+
+        [Test]
+        [TestCase("1,1", 2)]
+        public void when_value_are_comma_separated_numbers_then_sum_numbers(string value, int expectedResult)
+        {
+            var result = StringCalculator.Add(value);
+
+            result.Should().Be(expectedResult);
+        }
     }
 }
