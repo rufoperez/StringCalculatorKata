@@ -51,5 +51,14 @@ namespace StringCalculatorKataTest
 
             result.Should().Be(expectedResult);
         }
+
+        [Test]
+        [TestCase("1\n2\n3,4", 10)]
+        public void when_value_are_comma_and_enter_separated_numbers_then_sum_all_numbers(string value, int expectedResult)
+        {
+            var result = StringCalculator.Add(value);
+
+            result.Should().Be(expectedResult);
+        }
     }
 }
