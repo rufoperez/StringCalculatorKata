@@ -61,5 +61,14 @@ namespace StringCalculatorKataTest
 
             result.Should().Be(expectedResult);
         }
+
+        [Test]
+        [TestCase("//:\n1:2:3:4", 10)]
+        public void when_delimiters_are_informed_then_use_it_as_delimiter(string value, int expectedResult)
+        {
+            var result = StringCalculator.Add(value);
+
+            result.Should().Be(expectedResult);
+        }
     }
 }
