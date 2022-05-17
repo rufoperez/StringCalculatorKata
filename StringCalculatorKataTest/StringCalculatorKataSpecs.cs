@@ -70,5 +70,13 @@ namespace StringCalculatorKataTest
 
             result.Should().Be(expectedResult);
         }
+
+        [Test]
+        public void when_there_is_a_negative_number_then_return_exception()
+        {
+            Action sum = () => StringCalculator.Add("-1");
+
+            sum.Should().Throw<Exception>();
+        }
     }
 }
