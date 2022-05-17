@@ -33,6 +33,8 @@ namespace StringCalculatorKataTest
 
         [Test]
         [TestCase("1,1", 2)]
+        [TestCase("2,3", 5)]
+        [TestCase("4,8", 12)]
         public void when_value_are_comma_separated_numbers_then_sum_numbers(string value, int expectedResult)
         {
             var result = StringCalculator.Add(value);
