@@ -23,6 +23,7 @@ namespace StringCalculatorKataTest
         [Test]
         [TestCase("1", 1)]
         [TestCase("2", 2)]
+        [TestCase("3", 3)]
         public void when_value_is_number_then_return_the_number(string value, int expectedResult)
         {
             var result = StringCalculator.Add(value);
