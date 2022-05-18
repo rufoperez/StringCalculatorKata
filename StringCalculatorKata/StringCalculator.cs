@@ -10,7 +10,7 @@ public static class StringCalculator
             return 0;
         if (ValueHasDelimeters(value))
         {
-            var delimeters = GetSeparators(value);
+            var delimeters = GetDelimeters(value);
 
             if (value.StartsWith("//"))
             {
@@ -23,14 +23,12 @@ public static class StringCalculator
         return ConvertValueToInt(value);
     }
 
-    private static string[] GetSeparators(string value)
+    private static string[] GetDelimeters(string value)
     {
-        string[] delimeters = null;
         if (value.StartsWith("//"))
             return GetMultipleDelimeters(value);
 
         return new string[] {",", "\n"};
-
     }
 
     private static string[] GetMultipleDelimeters(string value)
