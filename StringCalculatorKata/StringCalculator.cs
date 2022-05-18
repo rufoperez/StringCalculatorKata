@@ -8,16 +8,16 @@ public static class StringCalculator
     {
         if (string.IsNullOrEmpty(value))
             return 0;
-        if (ValueHasSeparators(value))
+        if (ValueHasDelimeters(value))
         {
-            var separators = GetSeparators(value);
+            var delimeters = GetSeparators(value);
 
             if (value.StartsWith("//"))
             {
-                value = value.Substring(4, value.Length - 4);
+                value = value.Substring(value.IndexOf("\n") + 1, value.Length - value.IndexOf("\n")-1);
             }
 
-            return SumValues(value, separators);
+            return SumValues(value, delimeters);
         }
         CheckNegativeValue(value);
         return ConvertValueToInt(value);
@@ -25,20 +25,20 @@ public static class StringCalculator
 
     private static string[] GetSeparators(string value)
     {
-        string[] separators = null;
+        string[] delimeters = null;
         if (value.StartsWith("//"))
         {
-            separators = new string[1] {value.Substring(2, 1)};
-        }
-        else
-        {
-            separators = new string[2] {",", "\n"};
+            bool hasMulticharDelimeters = value.IndexOf("[") > 0;
+            if (hasMulticharDelimeters)
+                return new string[1] {value.Substring(value.IndexOf("[") + 1, value.IndexOf("]") - value.IndexOf("[") - 1) };
+            return new string[1] {value.Substring(2, 1)};
         }
 
-        return separators;
+        return new string[2] {",", "\n"};
+
     }
 
-    private static bool ValueHasSeparators(string value)
+    private static bool ValueHasDelimeters(string value)
     {
         return value.IndexOf(",") > 0 || value.IndexOf("\n") > 0 || value.StartsWith("//");
     }

@@ -85,7 +85,7 @@ namespace StringCalculatorKataTest
         }
 
         [Test]
-        [TestCase("//[***]\n1:2:3:4", 10)]
+        [TestCase("//[***]\n1***2***3***4", 10)]
         public void delimeters_can_have_diferent_lenght(string value, int expectedResult)
         {
             var result = StringCalculator.Add(value);
