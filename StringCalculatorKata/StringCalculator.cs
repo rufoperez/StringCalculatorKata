@@ -28,14 +28,20 @@ public static class StringCalculator
         string[] delimeters = null;
         if (value.StartsWith("//"))
         {
-            bool hasMulticharDelimeters = value.IndexOf("[") > 0;
-            if (hasMulticharDelimeters)
-                return new string[1] {value.Substring(value.IndexOf("[") + 1, value.IndexOf("]") - value.IndexOf("[") - 1) };
+            bool hasMultiDelimeters = value.IndexOf("[") > 0;
+            if (hasMultiDelimeters)
+                return GetMultipleDelimeters(value);
             return new string[1] {value.Substring(2, 1)};
         }
 
         return new string[2] {",", "\n"};
 
+    }
+
+    private static string[] GetMultipleDelimeters(string value)
+    {
+        string delimeters = value.Substring(2, value.IndexOf('\n')-2);
+        return delimeters.Split(new String[] {"[", "][", "]"}, StringSplitOptions.None);
     }
 
     private static bool ValueHasDelimeters(string value)
