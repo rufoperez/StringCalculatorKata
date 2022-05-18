@@ -8,23 +8,39 @@ public static class StringCalculator
     {
         if (string.IsNullOrEmpty(value))
             return 0;
-        if (value.IndexOf(",") > 0 || value.IndexOf("\n") > 0)
+        if (ValueHasSeparators(value))
         {
-            string[] separators = null;
+            var separators = GetSeparators(value);
+
             if (value.StartsWith("//"))
             {
-                separators = new string[1] {value.Substring(2, 1)};
                 value = value.Substring(4, value.Length - 4);
-            }
-            else
-            {
-                separators = new string[2] {",", "\n"};
             }
 
             return SumValues(value, separators);
         }
         CheckNegativeValue(value);
         return ConvertValueToInt(value);
+    }
+
+    private static string[] GetSeparators(string value)
+    {
+        string[] separators = null;
+        if (value.StartsWith("//"))
+        {
+            separators = new string[1] {value.Substring(2, 1)};
+        }
+        else
+        {
+            separators = new string[2] {",", "\n"};
+        }
+
+        return separators;
+    }
+
+    private static bool ValueHasSeparators(string value)
+    {
+        return value.IndexOf(",") > 0 || value.IndexOf("\n") > 0 || value.StartsWith("//");
     }
 
     private static int ConvertValueToInt(string value)
