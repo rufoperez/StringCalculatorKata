@@ -27,14 +27,9 @@ public static class StringCalculator
     {
         string[] delimeters = null;
         if (value.StartsWith("//"))
-        {
-            bool hasMultiDelimeters = value.IndexOf("[") > 0;
-            if (hasMultiDelimeters)
-                return GetMultipleDelimeters(value);
-            return new string[1] {value.Substring(2, 1)};
-        }
+            return GetMultipleDelimeters(value);
 
-        return new string[2] {",", "\n"};
+        return new string[] {",", "\n"};
 
     }
 
