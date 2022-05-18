@@ -24,6 +24,13 @@ public static class StringCalculator
             return SumValues(value, separators);
         }
         CheckNegativeValue(value);
+        return ConvertValueToInt(value);
+    }
+
+    private static int ConvertValueToInt(string value)
+    {
+        if(int.Parse(value)> 1000)
+            return 0;
         return int.Parse(value);
     }
 
@@ -34,7 +41,7 @@ public static class StringCalculator
         foreach (var val in values)
         {
             CheckNegativeValue(val);
-            result += int.Parse(val);
+            result += ConvertValueToInt(val);
         }
 
         return result;
