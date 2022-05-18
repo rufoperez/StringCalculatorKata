@@ -11,16 +11,19 @@ public static class StringCalculator
         if (ValueHasDelimeters(value))
         {
             var delimeters = GetDelimeters(value);
-
-            if (value.StartsWith("//"))
-            {
-                value = value.Substring(value.IndexOf("\n") + 1, value.Length - value.IndexOf("\n")-1);
-            }
-
+            value = GetValuesToSum(value);
             return SumValues(value, delimeters);
         }
         CheckNegativeValue(value);
         return ConvertValueToInt(value);
+    }
+
+    private static string GetValuesToSum(string value)
+    {
+        if (value.StartsWith("//"))
+            return value.Split(new char[] {'\n'})[1];
+
+        return value;
     }
 
     private static string[] GetDelimeters(string value)
