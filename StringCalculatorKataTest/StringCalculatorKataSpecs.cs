@@ -24,6 +24,7 @@ namespace StringCalculatorKataTest
         [TestCase("1", 1)]
         [TestCase("2", 2)]
         [TestCase("3", 3)]
+        [TestCase("3000", 0)]
         public void when_value_is_number_then_return_the_number(string value, int expectedResult)
         {
             var result = StringCalculator.Add(value);
@@ -45,6 +46,7 @@ namespace StringCalculatorKataTest
         [Test]
         [TestCase("1,1,1,1", 4)]
         [TestCase("1,2,3,4", 10)]
+        [TestCase("1,1001,3,4", 8)]
         public void when_value_are_comma_separated_numbers_then_sum_all_numbers(string value, int expectedResult)
         {
             var result = StringCalculator.Add(value);

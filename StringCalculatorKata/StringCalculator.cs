@@ -21,19 +21,23 @@ public static class StringCalculator
                 separators = new string[2] {",", "\n"};
             }
 
-
-            var result = 0;
-            string[] values = value.Split(separators, StringSplitOptions.None);
-            foreach (var val in values)
-            {
-                CheckNegativeValue(val);
-                result += int.Parse(val);
-            }
-
-            return result;
+            return SumValues(value, separators);
         }
         CheckNegativeValue(value);
         return int.Parse(value);
+    }
+
+    private static int SumValues(string value, string[] separators)
+    {
+        var result = 0;
+        string[] values = value.Split(separators, StringSplitOptions.None);
+        foreach (var val in values)
+        {
+            CheckNegativeValue(val);
+            result += int.Parse(val);
+        }
+
+        return result;
     }
 
     private static void CheckNegativeValue(string val)
