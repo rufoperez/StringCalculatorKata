@@ -92,5 +92,14 @@ namespace StringCalculatorKataTest
 
             result.Should().Be(expectedResult);
         }
+
+        [Test]
+        [TestCase("//[%][$]\n1$2$3%4", 10)]
+        public void delimeters_can_be_more_than_one(string value, int expectedResult)
+        {
+            var result = StringCalculator.Add(value);
+
+            result.Should().Be(expectedResult);
+        }
     }
 }
